@@ -12,18 +12,18 @@ client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./commands/");
 
-// Charger les gestionnaires de commandes
+
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
 
-// Lorsque le client est prêt
+
 client.on('ready', () => {
-    client.user.setActivity('Selfboted by Dam', { type: 'PLAYING' }); // Modifier l'activité ici
+    client.user.setActivity('Selfboted by Dam', { type: 'PLAYING' }); 
     console.log(`${client.user.username} is running.`);
 })
 
-// Lorsque le client reçoit un message
+
 client.on('messageCreate', async message => {
     if(message.author.bot) return;
     if(message.author.id != client.user.id) return;
